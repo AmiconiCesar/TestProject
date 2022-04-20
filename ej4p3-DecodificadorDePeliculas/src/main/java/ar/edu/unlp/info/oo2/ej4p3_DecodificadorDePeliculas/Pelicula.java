@@ -38,4 +38,17 @@ public class Pelicula {
 	private boolean agregarSimilar(Pelicula pelicula) {
         return this.similares.add(pelicula);          
 	}
-}
+	
+	public boolean soySimilarA(Pelicula pelicula) {
+		return this.similares.contains(pelicula);
+	    }
+
+	public List<Pelicula> getSimilares() {
+		return similares;
+	}
+	
+	public String toString() {
+		return this.titulo;
+	}
+	
+	}

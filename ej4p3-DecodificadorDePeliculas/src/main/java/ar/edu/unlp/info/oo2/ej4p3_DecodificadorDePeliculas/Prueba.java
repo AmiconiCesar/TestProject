@@ -8,21 +8,31 @@ public class Prueba {
 	public static void main(String[] args) {
 		
 		
-		List<Pelicula> grilla = new ArrayList<Pelicula>();
+		Pelicula thor = new Pelicula("Thor", 2007, 7.9);
+		Pelicula capAmerica = new Pelicula("Capitan America",2016,7.8);
+		Pelicula ironMan = new Pelicula("Iron Man",2010,7.9);
+		Pelicula dunkirk= new Pelicula("Dunkirk",2017,7.9);
+		Pelicula rocky = new Pelicula("Rocky",1976,8.1);
+		Pelicula rambo = new Pelicula("Rambo",1979,7.8);
 		
-		List<Integer> enteros = new ArrayList<Integer>();
+		thor.establecerSimilar(capAmerica);
+		thor.establecerSimilar(ironMan);
+		ironMan.establecerSimilar(capAmerica);
+		rocky.establecerSimilar(rambo);
 		
-		enteros.add(1);
-		enteros.add(8);
-		enteros.add(5);
-		enteros.add(4);
-		System.out.println(enteros);
-		enteros.sort((Integer i1, Integer i2)-> Integer.compare(i2, i1));
-		enteros = enteros.subList(0, 3);
-		System.out.println(enteros);
-		System.out.println(enteros.size());
+		List<Pelicula> grilla = new ArrayList<Pelicula>(List.of(thor,capAmerica,ironMan,dunkirk,rocky,rambo));
 		
+		System.out.println(grilla);
 		
+		Decodificador deco= new Decodificador(grilla, new Similaridad());
+		
+		deco.reproducir(thor);
+		deco.reproducir(rocky);
+		
+		List<Pelicula> resultado;
+		resultado = deco.sugerirPeliculas();
+		
+		System.out.println(resultado);
 		
 		
 	}
