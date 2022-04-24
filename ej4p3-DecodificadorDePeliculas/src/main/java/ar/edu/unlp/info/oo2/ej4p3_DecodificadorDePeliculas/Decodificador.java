@@ -3,7 +3,7 @@ package ar.edu.unlp.info.oo2.ej4p3_DecodificadorDePeliculas;
 import java.util.ArrayList;
 import java.util.List;
 
-
+// Strategy Context
 public class Decodificador {
 	
 	private List<Pelicula> grilla;

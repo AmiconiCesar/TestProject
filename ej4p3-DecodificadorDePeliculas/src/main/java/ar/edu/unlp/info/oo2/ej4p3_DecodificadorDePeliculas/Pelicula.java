@@ -19,8 +19,10 @@ public class Pelicula {
 	}
 
 	public void establecerSimilar(Pelicula pelicula) { 
-	     this.agregarSimilar(pelicula);
-	     pelicula.agregarSimilar(this);
+	    if (!this.soySimilarA(pelicula)) {
+	    	this.agregarSimilar(pelicula);
+	    	pelicula.agregarSimilar(this);
+	     }
 	}
 
 	public String getTitulo() {
@@ -43,10 +45,7 @@ public class Pelicula {
 		return this.similares.contains(pelicula);
 	    }
 
-	public List<Pelicula> getSimilares() {
-		return similares;
-	}
-	
+
 	public String toString() {
 		return this.titulo;
 	}
